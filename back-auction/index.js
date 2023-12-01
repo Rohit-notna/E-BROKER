@@ -30,7 +30,8 @@ const corsOptions = {
   
 app.use(express.json());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, './front-end-auction/build')))
+app.use(express.static(path.join(__dirname, '../front-end-auction/build')))
+
 
 const MONGO_URI = process.env.MONGO;
 
@@ -48,9 +49,9 @@ async  function connectToMoongose() {
 app.use('/api/auth', authRouter)
 app.use('/api/listing', listingRouter)
  
-app.get('*',(req, res)=>{
-  res.sendFile(path.join(__dirname, './front-end-auction/build/index.html',));
-})
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../front-end-auction/build/index.html'));
+});
 
 app.listen(7000, ()=>{
     console.log("Port listen in 7000")
