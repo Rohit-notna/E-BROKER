@@ -12,8 +12,6 @@ import path from "path"
 dotenv.config();
 
 
-const __dirname = path.resolve();
-
 const app = express();
 
 
@@ -28,7 +26,7 @@ const corsOptions = {
   
 app.use(express.json());
 app.use(cookieParser());
-
+app.use(express.static(path.join(__dirname, './front-end-auction/build')))
 
 const MONGO_URI = process.env.MONGO;
 
@@ -45,10 +43,9 @@ async  function connectToMoongose() {
 
 app.use('/api/auth', authRouter)
 app.use('/api/listing', listingRouter)
-
-app.use(express.static(path.join(__dirname, 'front-end-auction/dist')));
+ 
 app.get('*',(req, res)=>{
-  res.sendFile(path.join(__dirname, 'front-end-auction', 'dist', 'index.html'));
+  res.sendFile(path.join(__dirname, './front-end-auction/build/index.html',));
 })
 
 app.listen(7000, ()=>{
