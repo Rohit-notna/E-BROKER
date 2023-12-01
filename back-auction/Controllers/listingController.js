@@ -19,7 +19,7 @@ export const createListing = async (req, res, next) => {
       
     } catch (error) {
       next(error);
-      console.log(error, "error ")
+      // console.log(error, "error ")
     }
   };
 
@@ -38,7 +38,7 @@ export const createListing = async (req, res, next) => {
     try {
       const listing = await Listing.findById(req.params.id);
       res.status(200).json(listing);
-      console.log(listing)
+      // console.log(listing)
     } catch (error) {
       next(error);
     }
@@ -54,7 +54,7 @@ export const createListing = async (req, res, next) => {
       await Listing.findByIdAndDelete(req.params.id);
       res.status(200).json('Listing has been deleted!');
     } catch (error) {
-      console.log(error)
+      // console.log(error)
       next(error);
 
     }
@@ -62,7 +62,7 @@ export const createListing = async (req, res, next) => {
 
   export const getListings = async (req, res, next) => {
     try {
-      console.log("here 1"+ req.query)
+      // console.log("here 1"+ req.query)
       const limit = parseInt(req.query.limit) || 9;
       const startIndex = parseInt(req.query.startIndex) || 0;
       let offer = req.query.offer;
@@ -108,15 +108,15 @@ export const createListing = async (req, res, next) => {
   
       return res.status(200).json(listings);
     } catch (error) {
-      console.log("here"+ error.message)
+      // console.log("here"+ error.message)
       next(error);
     }
   };
 
   export const updateListing = async (req, res, next) => {
-    console.log("update listing")
+    // console.log("update listing")
     const listing = await Listing.findById(req.params.id);
-    console.log("update listing"+req.body.name)
+    // console.log("update listing"+req.body.name)
     if (!listing) {
       return next(errorHandler(404, 'Listing not found!'));
     }

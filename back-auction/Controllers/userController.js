@@ -101,7 +101,7 @@ export const google = async (req, res, next) => {
         .json(userDetails);
     }
   } catch (error) {
-    console.error('Error in google function:', error);
+    // console.error('Error in google function:', error);
     next(error);
   }
 };
@@ -131,7 +131,7 @@ export const fetchUserUsingJWTToken  = async (req, res, next) => {
 
 export const fetchUserUsingId  = async (req, res, next) => {
   try {
-    console.log("here "+ req.params.id)
+    // console.log("here "+ req.params.id)
     const userDetails = await user.findById(req.params.id);
   
     if (!userDetails) return next(errorHandler(404, 'User not found!'));
@@ -140,7 +140,7 @@ export const fetchUserUsingId  = async (req, res, next) => {
   
     res.status(200).json(rest);
   } catch (error) {
-    console.log("here "+ error.message)
+    // console.log("here "+ error.message)
     next(error);
   }
 };

@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/front-auction/node_modules
+/front-end-auction/node_modules
 /node_modules/*
 /.pnp
 .pnp.js

@@ -5,10 +5,14 @@ import authRouter from '../back-auction/Routes/userRoutes.js'
 import cors from 'cors'
 import listingRouter from '../back-auction/Routes/listingRoutes.js'
 import cookieParser from 'cookie-parser';
+import path from "path"
 
 
 
 dotenv.config();
+
+
+const __dirname = path.resolve();
 
 const app = express();
 
@@ -41,6 +45,12 @@ async  function connectToMoongose() {
 
 app.use('/api/auth', authRouter)
 app.use('/api/listing', listingRouter)
+
+app.use(express.static(path.join(__dirname, 'front-end-auction/dist')));
+app.get('*',(req, res)=>{
+  res.sendFile(path.join(__dirname, 'front-end-auction', 'dist', 'index.html'));
+})
+
 app.listen(7000, ()=>{
     console.log("Port listen in 7000")
 })
