@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
+import { Icon } from '@iconify/react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { signInSuccess } from '../Redux/createSlice'
@@ -67,7 +67,8 @@ export default function Navbar() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <button>
-              <FaSearch className="text-slate-600" />
+            <Icon icon="ic:baseline-search" className="text-slate-600"/>
+            
             </button>
           </form>
         </div>
