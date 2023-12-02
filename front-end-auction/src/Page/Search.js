@@ -56,7 +56,7 @@ export default function Search() {
       setShowMore(false);
       const searchQuery = urlParams.toString();
       console.log(searchQuery)
-      const response = await axios.get(`http://localhost:7000/api/auth/searchListing?${searchQuery}`);
+      const response = await axios.get(`e-broker-rohit-notnas-projects.vercel.app/api/auth/searchListing?${searchQuery}`);
       const data = response.data;
       if (data.length > 8) {
         setShowMore(true);
@@ -123,7 +123,7 @@ export default function Search() {
     const urlParams = new URLSearchParams(location.search);
     urlParams.set('startIndex', startIndex);
     const searchQuery = urlParams.toString();
-    const response = await axios.get(`http://localhost:7000/api/listing/get?${searchQuery}`);
+    const response = await axios.get(`e-broker-rohit-notnas-projects.vercel.app/api/listing/get?${searchQuery}`);
     const data = response.data;
     if (data.length < 9) {
       setShowMore(false);

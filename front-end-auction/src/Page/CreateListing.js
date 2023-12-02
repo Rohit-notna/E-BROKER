@@ -135,7 +135,7 @@ export default function CreateListing() {
         return setError('Discount price must be lower than regular price');
       setLoading(true);
       setError(false);
-      const data = await axios.post("http://localhost:7000/api/listing/create",{ ...formData, userRef: currentUser._id }
+      const data = await axios.post("e-broker-rohit-notnas-projects.vercel.app/api/listing/create",{ ...formData, userRef: currentUser._id }
       );
       
       setLoading(false);

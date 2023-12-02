@@ -22,7 +22,7 @@ export default function Oauth() {
   email: result.user.email,
   photo: result.user.photoURL,
    }
-   const response = await axios.post("http://localhost:7000/api/auth/google", userData, {
+   const response = await axios.post("e-broker-rohit-notnas-projects.vercel.app/api/auth/google", userData, {
     withCredentials: true, 
     credentials: 'include'
   });

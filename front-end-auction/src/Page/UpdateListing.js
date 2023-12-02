@@ -39,7 +39,7 @@ export default function CreateListing() {
   useEffect(() => {
     const fetchListing = async () => {
       const listingId = params.id;
-      const response = await axios.get(`http://localhost:7000/api/listing/${listingId}`)
+      const response = await axios.get(`e-broker-rohit-notnas-projects.vercel.app/api/listing/${listingId}`)
       const data = response.data
     //   const res = await fetch(`/api/listing/get/${listingId}`);
     //   const data = await res.json();

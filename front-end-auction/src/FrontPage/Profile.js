@@ -71,7 +71,7 @@ export default function Profile() {
     try {
       dispatch(updateUserStart());
       console.log(currentUser._id)
-      const response = await axios.post(`http://localhost:7000/api/auth/update/${currentUser._id}`, formData)
+      const response = await axios.post(`e-broker-rohit-notnas-projects.vercel.app/api/auth/update/${currentUser._id}`, formData)
       const data = response.data
       if (data.success === false) {
         dispatch(updateUserFail(data.message));
@@ -88,7 +88,7 @@ export default function Profile() {
   const handleDeleteUser = async () => {
     try {
       dispatch(deleteUserStart());
-      const response = await axios.delete(`http://localhost:7000/api/auth/delete/${currentUser._id}`)
+      const response = await axios.delete(`e-broker-rohit-notnas-projects.vercel.app/api/auth/delete/${currentUser._id}`)
       const data = response.data
       if (data.success === false) {
         dispatch(deleteUserFailure(data.message));
@@ -102,7 +102,7 @@ export default function Profile() {
 
   const handleSignOut = async () => {
     try {
-            const data = await axios.get("http://localhost:7000/api/auth/signout");
+            const data = await axios.get("e-broker-rohit-notnas-projects.vercel.app/api/auth/signout");
             if (data.success === false) {
               dispatch(deleteUserFailure(data.message));
               return;
@@ -117,7 +117,7 @@ export default function Profile() {
   const handleShowListings = async () => {
     try {
       setShowListingsError(false);
-      const response = await axios.get(`http://localhost:7000/api/listing/list/${currentUser._id}`);
+      const response = await axios.get(`e-broker-rohit-notnas-projects.vercel.app/api/listing/list/${currentUser._id}`);
      const data = response.data
      
       if (data.success === false) {
@@ -136,7 +136,7 @@ export default function Profile() {
   const handleListingDelete = async (listingId) => {
     
     try {
-      const response = axios.delete(`http://localhost:7000/api/listing/${listingId}`)
+      const response = axios.delete(`e-broker-rohit-notnas-projects.vercel.app/api/listing/${listingId}`)
       const data = (await response).data;
       if(data.success=== false){
       console.log(data.message)

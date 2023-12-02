@@ -19,7 +19,7 @@ export default function Home() {
   useEffect(() => {
     const fetchOfferListings = async () => {
       try {
-        const response = await axios.get("http://localhost:7000/api/auth/searchListing?offer=true")
+        const response = await axios.get("e-broker-rohit-notnas-projects.vercel.app/api/auth/searchListing?offer=true")
         const data = response.data
         setOfferListings(data);
         fetchRentListings();
@@ -29,7 +29,7 @@ export default function Home() {
     };
     const fetchRentListings = async () => {
       try {
-        const response = await axios.get("http://localhost:7000/api/auth/searchListing?type=rent&limit=4")
+        const response = await axios.get("e-broker-rohit-notnas-projects.vercel.app/api/auth/searchListing?type=rent&limit=4")
         const data = response.data
         setRentListings(data);
         fetchSaleListings();
@@ -40,7 +40,7 @@ export default function Home() {
 
     const fetchSaleListings = async () => {
       try {
-        const response = await axios.get("http://localhost:7000/api/auth/searchListing?type=sale&limit=4")
+        const response = await axios.get("e-broker-rohit-notnas-projects.vercel.app/api/auth/searchListing?type=sale&limit=4")
         const data = response.data
         setSaleListings(data);
       } catch (error) {

@@ -32,7 +32,7 @@ export default function Navbar() {
   useEffect(async () => {
     if (!currentUser) {
       try {
-        const response = await axios.get(`http://localhost:7000/api/auth/fetchUser`); 
+        const response = await axios.get(`e-broker-rohit-notnas-projects.vercel.app/api/auth/fetchUser`); 
         if(response.success) {
           dispatch(signInSuccess(response.data))
         }
