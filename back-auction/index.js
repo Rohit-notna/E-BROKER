@@ -6,15 +6,8 @@ import cors from 'cors'
 import listingRouter from '../back-auction/Routes/listingRoutes.js'
 import cookieParser from 'cookie-parser';
 
-
-
-
 dotenv.config();
-
-
-
 const app = express();
-
 
 const corsOptions = {
     origin: 'http://localhost:3000', 
@@ -22,13 +15,10 @@ const corsOptions = {
     exposedHeaders: ["set-cookie"]
   };
   app.options('*', cors(corsOptions));
-  
   app.use(cors(corsOptions));
   
 app.use(express.json());
 app.use(cookieParser());
-
-
 
 const MONGO_URI = process.env.MONGO;
 
@@ -40,8 +30,6 @@ async  function connectToMoongose() {
         console.error("Error connecting to MongoDB:", error.message);
     }
 }
-
-
 
 app.use('/api/auth', authRouter)
 app.use('/api/listing', listingRouter)
@@ -61,3 +49,9 @@ app.use((err, req, res, next) => {
       message,
     });
   });
+
+  app.get('*',(req,res,next)=>{
+    res.status(200).json({
+      message:'bad request'
+    })
+  })
