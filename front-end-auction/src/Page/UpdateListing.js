@@ -41,8 +41,8 @@ export default function CreateListing() {
       const listingId = params.id;
       const response = await axios.get(`e-broker-rohit-notnas-projects.vercel.app/api/listing/${listingId}`)
       const data = response.data
-    //   const res = await fetch(`/api/listing/get/${listingId}`);
-    //   const data = await res.json();
+      //   const res = await fetch(`/api/listing/get/${listingId}`);
+      //   const data = await res.json();
       if (data.success === false) {
         console.log(data.message);
         return;
