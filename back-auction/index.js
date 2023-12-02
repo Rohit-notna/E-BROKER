@@ -5,16 +5,13 @@ import authRouter from '../back-auction/Routes/userRoutes.js'
 import cors from 'cors'
 import listingRouter from '../back-auction/Routes/listingRoutes.js'
 import cookieParser from 'cookie-parser';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path'; 
-import path from "path"
+
 
 
 
 dotenv.config();
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+
 
 const app = express();
 
@@ -30,7 +27,7 @@ const corsOptions = {
   
 app.use(express.json());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '../front-end-auction/build')))
+
 
 
 const MONGO_URI = process.env.MONGO;
@@ -48,10 +45,6 @@ async  function connectToMoongose() {
 
 app.use('/api/auth', authRouter)
 app.use('/api/listing', listingRouter)
- 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../front-end-auction/build/index.html'));
-});
 
 app.listen(7000, ()=>{
     console.log("Port listen in 7000")
