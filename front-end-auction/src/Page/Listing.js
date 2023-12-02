@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import "react-responsive-carousel/lib/styles/carousel.min.css"
-import { Carousel } from 'react-responsive-carousel';
 import Contact from './Contact';
 import axios from 'axios';
 
@@ -58,13 +56,23 @@ export default function Listing() {
       )}
       {listing && !loading && !error && (
         <div className="max-w-screen-xl mx-auto">
-         <Carousel showArrows={true} showStatus={false} showThumbs={false} infiniteLoop autoPlay >
-      {listing.imageUrls && listing.imageUrls.map((url) => (
-        <div key={url} className='h-[400px] sm:h-[550px]'>
-          <img src={url} alt={`Slide ${url}`}  className="object-cover w-full h-full rounded-lg shadow-md"/>
-        </div>
-      ))}
-    </Carousel>
+          <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
+  <div className="carousel-inner">
+    {listing.imageUrls && listing.imageUrls.map((url, index) => (
+      <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+        <img src={url} className={`d-block w-100`} alt={`Slide ${index + 1}`} />
+      </div>
+    ))}
+  </div>
+  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Previous</span>
+  </button>
+  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Next</span>
+  </button>
+</div>
           <div className='fixed top-[13%] right-[3%] z-10 border rounded-full w-12 h-12 flex justify-center items-center bg-slate-100 cursor-pointer'>
             <FaShare
               className='text-slate-500'

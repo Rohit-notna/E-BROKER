@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ListingItem from '../Page/ListingItem';
 import axios from 'axios'
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
 import image from '../Pics/house.jpg'
 import image1 from '../Pics/house1.jpg'
 import image2 from '../Pics/house2.jpg'
@@ -51,14 +49,37 @@ export default function Home() {
   }, []);
   return (
     <div>
-       <Carousel autoPlay infiniteLoop className='z-50'>
-    <div>
-        <img src={image1} style={{ width: '100%', height: '100%' }} />
+ <div id="carouselExampleAutoplaying" class="carousel slide"  data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active ">
+        <img src={image1} class="img1 d-block" alt="bartender"/>
+      </div>
+
+      <div class="carousel-item">
+        <img src={image3} class="img3 d-block" alt="bartender"/>
+      </div>
     </div>
-    <div>
-        <img src={image3} style={{ width: '100%', height: '100%' }} />
-    </div>
-</Carousel>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
+
+{/* //        <Carousel autoPlay infiniteLoop className='z-50'>
+//     <div>
+//         <img src={image1} style={{ width: '100%', height: '100%' }} />
+//     </div>
+//     <div>
+//         <img src={image3} style={{ width: '100%', height: '100%' }} />
+//     </div>
+// </Carousel> */}
 
       <div className='flex flex-col gap-6 p-20 px-3 max-w-6xl mx-auto'>
         <h1 className='text-slate-700 font-bold text-3xl lg:text-6xl'>
