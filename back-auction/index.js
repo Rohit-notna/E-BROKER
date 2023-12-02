@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-    origin: 'https://e-broker-front-end-auction.vercel.app/', 
+    origin: 'https://e-broker-front-end-auction.vercel.app', 
     credentials: true,
     exposedHeaders: ["set-cookie"]
   };
