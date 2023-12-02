@@ -22,7 +22,7 @@ const handleSubmit = async (e) => {
   e.preventDefault()
  try {
   dispatch(signInStart());
- const data = await axios.post("e-broker-rohit-notnas-projects.vercel.app/api/auth/signup", value)
+ const data = await axios.post("https://e-broker-rohit-notnas-projects.vercel.app/api/auth/signup", value)
   console.log(data);
       if (data.success === false) {
         dispatch(signInFail(data.message));

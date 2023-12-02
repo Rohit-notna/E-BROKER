@@ -29,7 +29,7 @@ export default function Listing() {
     const fetchListing = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`e-broker-rohit-notnas-projects.vercel.app/api/listing/${params.listingId}`);
+        const response = await axios.get(`https://e-broker-rohit-notnas-projects.vercel.app/api/listing/${params.listingId}`);
        
         const data = response.data;
         if (data.success === false) {

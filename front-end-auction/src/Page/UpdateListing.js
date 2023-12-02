@@ -39,7 +39,7 @@ export default function CreateListing() {
   useEffect(() => {
     const fetchListing = async () => {
       const listingId = params.id;
-      const response = await axios.get(`e-broker-rohit-notnas-projects.vercel.app/api/listing/${listingId}`)
+      const response = await axios.get(`https://e-broker-rohit-notnas-projects.vercel.app/api/listing/${listingId}`)
       const data = response.data
       //   const res = await fetch(`/api/listing/get/${listingId}`);
       //   const data = await res.json();
@@ -153,7 +153,7 @@ export default function CreateListing() {
         return setError('Discount price must be lower than regular price');
       setLoading(true);
       setError(false);
-      const response = await axios.post(`http://localhost:7000/api/listing/updateListing/${params.id}`, formData)
+      const response = await axios.post(`https://e-broker-rohit-notnas-projects.vercel.app/api/listing/updateListing/${params.id}`, formData)
       const data = response.data
       setLoading(false);
       if (data.success === false) {

@@ -13,7 +13,7 @@ export default function Contact({ listing }) {
     const fetchLandlord = async () => {
       try {
         console.log(listing.userRef)
-   const     response = await axios.get(`e-broker-rohit-notnas-projects.vercel.app/api/auth/fetchUserById/${listing.userRef}`);
+   const     response = await axios.get(`https://e-broker-rohit-notnas-projects.vercel.app/api/auth/fetchUserById/${listing.userRef}`);
 
       const data = response.data
            console.log(data)
