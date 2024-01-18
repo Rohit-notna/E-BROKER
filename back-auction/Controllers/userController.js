@@ -53,7 +53,10 @@ export const signin = async (req, res, next) => {
     const token = JWT.sign({ id: validUser._id }, JWT_SECRET);
     const { password: pass, ...rest } = validUser._doc;
     res
-      .cookie('access_token', token, { httpOnly: true })
+      .cookie('access_token', token, { httpOnly: true,
+        secure: true,
+      sameSite: 'None',
+    path: '/' })
       .status(200)
       .json(rest);
   } catch (error) {
@@ -71,7 +74,7 @@ export const google = async (req, res, next) => {
       res
         .cookie('access_token', token, { httpOnly: true,
         secure: true,
-      samSite: 'Strict',
+      sameSite: 'None',
     path: '/' })
         .status(200)
         .json(rest);
